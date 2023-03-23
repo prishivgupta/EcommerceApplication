@@ -17,7 +17,9 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddScoped<ICategory, CategoryRepository>();
+builder.Services.AddScoped<IProduct, ProductRepository>();
 
+builder.Services.AddMediatR(typeof(ProductRepository).Assembly);
 builder.Services.AddMediatR(typeof(CategoryRepository).Assembly);
 
 builder.Services.AddCors(options =>
