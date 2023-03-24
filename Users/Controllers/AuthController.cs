@@ -18,6 +18,7 @@ namespace Users.Controllers
 
 
         [HttpPost]
+        [Route("LoginUser")]
         public IActionResult Login([FromBody] UserDTO user)
         {
             var users = _mediator.Send(new LoginUserCommand(user));

@@ -24,7 +24,6 @@
       "UpstreamPathTemplate": "/gateway/Category/{id}",
       "UpstreamHttpMethod": [ "GET", "DELETE" ]
     },
-
     {
       "DownstreamPathTemplate": "/api/Product",
       "DownstreamScheme": "https",
@@ -48,6 +47,42 @@
       ],
       "UpstreamPathTemplate": "/gateway/Product/{id}",
       "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/User",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7018
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/User",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/User/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7018
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/User/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7018
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Auth",
+      "UpstreamHttpMethod": [ "POST" ]
     }
   ]
 }
