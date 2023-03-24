@@ -21,4 +21,6 @@ public partial class EcommerceContext : DbContext
     public virtual DbSet<Tcart> Tcarts { get; set; }
 
     public virtual DbSet<TcartItem> TcartItems { get; set; }
+
+    public virtual DbSet<Torder> Torders { get; set; }
 }
