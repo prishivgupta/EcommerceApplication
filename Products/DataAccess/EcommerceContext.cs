@@ -15,4 +15,10 @@ public partial class EcommerceContext : DbContext
     public virtual DbSet<Tcategory> Tcategories { get; set; }
 
     public virtual DbSet<Tproduct> Tproducts { get; set; }
+
+    public virtual DbSet<Tuser> Tusers { get; set; }
+
+    public virtual DbSet<Tcart> Tcarts { get; set; }
+
+    public virtual DbSet<TcartItem> TcartItems { get; set; }
 }
