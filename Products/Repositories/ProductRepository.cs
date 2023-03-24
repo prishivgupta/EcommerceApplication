@@ -2,6 +2,7 @@
 using Products.DataAccess;
 using Products.DataAccess.Interface;
 using Products.Models;
+using Products.ModelsDTO;
 
 namespace Products.Repositories
 {
@@ -19,7 +20,7 @@ namespace Products.Repositories
         {
             try {
                 _ecommerceContext?.Tproducts.AddAsync(product);
-                _ecommerceContext?.SaveChangesAsync();
+                await _ecommerceContext?.SaveChangesAsync();
                 return await _ecommerceContext.Tproducts.ToListAsync();
             }
             catch (Exception ex)
@@ -57,7 +58,7 @@ namespace Products.Repositories
         {
             try
             {
-                return await _ecommerceContext.Tproducts.ToListAsync();
+                return await _ecommerceContext.Tproducts.Include(p => p.Category).ToListAsync();
             }
             catch (Exception ex)
             {
@@ -70,7 +71,7 @@ namespace Products.Repositories
         {
             try
             {
-                var product = await _ecommerceContext.Tproducts.Where(j => j.ProductId == id).Include(c => c.Category).FirstOrDefaultAsync();
+                var product = await _ecommerceContext.Tproducts.Where(j => j.ProductId == id).Include(p => p.Category).FirstOrDefaultAsync();
                 return product;
             }
             catch (Exception ex) { throw new Exception(ex.Message); }
@@ -97,7 +98,7 @@ namespace Products.Repositories
                     await _ecommerceContext.SaveChangesAsync();
                 }
 
-                _ecommerceContext.SaveChangesAsync();
+                await _ecommerceContext.SaveChangesAsync();
                 return await _ecommerceContext.Tproducts.ToListAsync();
             }
             catch (Exception ex)

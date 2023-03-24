@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Products.Models;
 
 public partial class Tproduct
 {
+    [Key]
     public int ProductId { get; set; }
 
     public string ProductName { get; set; } = null!;
@@ -17,11 +20,12 @@ public partial class Tproduct
 
     public string? ProductImages { get; set; }
 
-    public int CategoryId { get; set; }
-
     public double? Rating { get; set; }
 
     public int ProductDiscountedPrice { get; set; }
 
-    public virtual Tcategory Category { get; set; } = null!;
+    [ForeignKey("CategoryId")]
+    public int? CategoryId { get; set; }
+
+    public virtual Tcategory? Category { get; set; }
 }
