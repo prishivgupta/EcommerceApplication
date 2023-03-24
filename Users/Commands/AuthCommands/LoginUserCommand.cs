@@ -1,6 +1,8 @@
-﻿namespace Users.Commands.AuthCommands
+﻿using MediatR;
+
+namespace Users.Commands.AuthCommands
 {
-    public class LoginUserCommand
+    public record LoginUserCommand(UserDTO user) : IRequest<UserDTO>
     {
     }
 }

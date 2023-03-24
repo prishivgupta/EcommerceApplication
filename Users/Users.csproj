@@ -24,8 +24,4 @@
     <ProjectReference Include="..\Products\Products.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

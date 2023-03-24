@@ -1,6 +1,8 @@
-﻿namespace Users.Commands.UserCommands
+﻿using MediatR;
+
+namespace Users.Commands.UserCommands
 {
-    public class DeleteUserCommand
+    public record DeleteUserCommand(int id) : IRequest<string>
     {
     }
 }

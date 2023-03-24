@@ -1,5 +1,8 @@
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Products.DataAccess;
+using Users.DataAccess.Interfaces;
+using Users.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IUser, UserRepository>();
+builder.Services.AddScoped<IAuth, AuthRepository>();
+
+builder.Services.AddMediatR(typeof(AuthRepository).Assembly);
+builder.Services.AddMediatR(typeof(UserRepository).Assembly);
 
 builder.Services.AddCors(options =>
 {

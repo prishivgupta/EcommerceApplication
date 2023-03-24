@@ -1,6 +1,9 @@
-﻿namespace Users.Queries
+﻿using MediatR;
+using Products.Models;
+
+namespace Users.Queries
 {
-    public class GetAllUsersQuery
+    public record GetAllUsersQuery : IRequest<List<Tuser>>
     {
     }
 }
