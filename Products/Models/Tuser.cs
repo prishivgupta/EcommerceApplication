@@ -12,7 +12,7 @@ namespace Products.Models
 
         public string UserEmail { get; set; }
 
-        public int UserPhoneNumber { get; set; }
+        public string UserPhoneNumber { get; set; }
 
         public string UserAddress { get; set; }
 

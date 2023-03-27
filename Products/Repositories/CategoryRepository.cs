@@ -94,7 +94,7 @@ namespace Products.Repositories
                     await _ecommerceContext.SaveChangesAsync();
                 }
 
-                _ecommerceContext.SaveChangesAsync();
+                await _ecommerceContext.SaveChangesAsync();
                 return await _ecommerceContext.Tcategories.ToListAsync();
             }
             catch(Exception ex)

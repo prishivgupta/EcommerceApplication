@@ -83,8 +83,21 @@ namespace Users.Repositories
         {
             try
             {
+                var cart = new Tcart()
+                {
+                    Discount = 0,
+                    TotalCost = 0,
+                };
+
+                await _ecommerceContext.Tcarts.AddAsync(cart);
+                await _ecommerceContext?.SaveChangesAsync();
+
+                var newCart = _ecommerceContext.Tcarts.OrderByDescending(a => a.CartId).First();
+
+                user.CartId = newCart.CartId;
                 _ecommerceContext?.Tusers.AddAsync(user);
                 await _ecommerceContext?.SaveChangesAsync();
+
                 return user;
             }
             catch (Exception ex)
