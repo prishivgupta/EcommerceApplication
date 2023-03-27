@@ -5,7 +5,7 @@ using Users.DataAccess.Interfaces;
 
 namespace Users.Handlers.AuthHandlers
 {
-    public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, Tuser>
+    public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, UserDTO>
     {
         private readonly IAuth _auth;
 
@@ -14,7 +14,7 @@ namespace Users.Handlers.AuthHandlers
             _auth = auth;
         }
 
-        public async Task<Tuser> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
+        public async Task<UserDTO> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
             return await Task.FromResult(await _auth.RegisterUser(request.user));
         }

@@ -1,0 +1,46 @@
+<div class="container">
+
+    <br/>
+    <br/>
+    
+    <div class="row">
+        <div class="col-9">
+            <h2>Products Table</h2>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-success" routerLink="addProduct">Add Product</button>
+        </div>
+    </div>
+    <br/>
+    <table *ngIf="products.length > 0" class="table table-borderless">
+        <thead>
+            <tr>
+            <th scope="col">Product Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Price</th>
+            <th scope="col">Product Discounted Price</th>
+            <th scope="col">Product Quantity</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Category</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.productId}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.productPrice}}</td>
+                <td>{{product.productDiscountedPrice}}</td>
+                <td>{{product.productQuantity}}</td>
+                <td>{{product.rating}}</td>
+                <td>{{product.categoryId}}</td>
+                <td>
+                    <button type="button" class="btn btn-dark" routerLink="updateProduct/{{product.productId}}">Edit</button>
+                    &nbsp; &nbsp;
+                    <button type="button" class="btn btn-danger" (click)="deleteProduct(product.productId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

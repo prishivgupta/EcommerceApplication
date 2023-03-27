@@ -1,0 +1,42 @@
+<div class="container">
+
+    <br/>
+    <br/>
+    
+    <div class="row">
+        <div class="col-9">
+            <h2>Users Table</h2>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-success" routerLink="addUser">Add User</button>
+        </div>
+    </div>
+    <br/>
+    <table *ngIf="users.length > 0" class="table table-borderless">
+        <thead>
+            <tr>
+            <th scope="col">User Id</th>
+            <th scope="col">User Name</th>
+            <th scope="col">User Email</th>
+            <th scope="col">User Role</th>
+            <th scope="col">User Address</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.userId}}</td>
+                <td>{{user.userName}}</td>
+                <td>{{user.userEmail}}</td>
+                <td>{{user.userRole}}</td>
+                <td>{{user.userAddress}}</td>
+                <td>
+                    <button type="button" class="btn btn-dark" routerLink="updateUser/{{user.userId}}">Edit</button>
+                    &nbsp; &nbsp;
+                    <button type="button" class="btn btn-danger" (click)="deleteUser(user.userId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

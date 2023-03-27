@@ -18,6 +18,8 @@ namespace Users
 
         public string? UserRole { get; set; }
 
+        public int? CartId { get; set; }
+
         public string? Message { get; set; }
 
         public string? Token { get; set; }

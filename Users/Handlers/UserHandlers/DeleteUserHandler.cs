@@ -15,7 +15,7 @@ namespace Users.Handlers.UserHandlers
         }
         public async Task<string> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            return await Task.FromResult(await _user.DeleteUSer(request.id));
+            return await Task.FromResult(await _user.DeleteUser(request.id));
         }
     }
 }

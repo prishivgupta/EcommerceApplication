@@ -56,7 +56,7 @@ namespace Products.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteCategory")]
+        [Route("DeleteCategory/{id}")]
 
         public async Task<ActionResult> DeleteCategory(int id)
         {

@@ -41,7 +41,7 @@ namespace Users.Repositories
             var tokens = new JwtSecurityToken(_configuration["jwt:Issuer"],
                 _configuration["jwt:Audience"],
                 tokenClaims,
-                expires: DateTime.Now.AddMinutes(15),
+                expires: DateTime.Now.AddMinutes(24000),
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(tokens);
@@ -79,7 +79,7 @@ namespace Users.Repositories
             }
         }
 
-        public async Task<Tuser> RegisterUser(Tuser user)
+        public async Task<UserDTO> RegisterUser(Tuser user)
         {
             try
             {
@@ -98,7 +98,17 @@ namespace Users.Repositories
                 _ecommerceContext?.Tusers.AddAsync(user);
                 await _ecommerceContext?.SaveChangesAsync();
 
-                return user;
+                var newUser = new UserDTO()
+                {
+                    UserName = user.UserName,
+                    UserEmail = user.UserEmail,
+                    UserPassword = user.UserPassword,
+                    UserRole = user.UserRole,
+                    Message = "Login Successful!",
+                    Token = generateToken(user),
+                };
+
+                return newUser;
             }
             catch (Exception ex)
             {

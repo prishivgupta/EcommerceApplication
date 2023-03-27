@@ -55,7 +55,7 @@ namespace Order.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteOrder")]
+        [Route("DeleteOrder/{id}")]
 
         public async Task<ActionResult> DeleteOrder(int id)
         {

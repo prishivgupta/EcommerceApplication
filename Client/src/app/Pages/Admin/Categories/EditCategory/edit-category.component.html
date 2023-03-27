@@ -1,0 +1,26 @@
+<div class="container">
+
+    <br/>
+    
+    <a href="#" class="badge badge-dark" (click)="goBack();">Go Back</a>
+
+    <br/>
+    <br/>
+
+    <h2>Edit Category</h2>
+
+    <br/>
+
+    <form #Form="ngForm" (ngSubmit)="editCategory(category)">
+      <div class="form-group">
+        <label for="categoryId">Category Id</label>
+        <input type="text" class="form-control" id="categoryId" placeholder="Enter Category Id" name="categoryId" [(ngModel)]="category.categoryId" disabled>
+        </div>
+        <div class="form-group">
+          <label for="categoryName">Category Name</label>
+          <input type="text" class="form-control" id="categoryName" placeholder="Enter Category Name" name="categoryName" [(ngModel)]="category.categoryName">
+        </div>
+        <button type="submit" class="btn btn-primary">Edit Category</button>
+    </form>
+
+</div>

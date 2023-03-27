@@ -10,7 +10,7 @@ namespace Users.DataAccess.Interfaces
 
         public Task<List<Tuser>> GetAllUsers();
 
-        public Task<string> DeleteUSer(int id);
+        public Task<string> DeleteUser(int id);
 
         public Task<Tuser> GetUserById(int id);
 

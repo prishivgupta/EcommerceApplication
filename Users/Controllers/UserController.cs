@@ -52,7 +52,7 @@ namespace Users.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteUser")]
+        [Route("DeleteUser/{id}")]
         public async Task<ActionResult> DeleteUser(int id)
         {
             await mediator.Send(new DeleteUserCommand(id));

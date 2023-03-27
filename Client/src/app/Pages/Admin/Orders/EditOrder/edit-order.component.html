@@ -1,0 +1,42 @@
+<div class="container">
+
+    <br/>
+    
+    <a href="#" class="badge badge-dark" (click)="goBack();">Go Back</a>
+
+    <br/>
+    <br/>
+
+    <h2>Edit Order</h2>
+
+    <br/>
+
+    <form #Form="ngForm" (ngSubmit)="editOrder(order)">
+        <div class="form-group">
+            <label for="orderId">Order Id</label>
+            <input type="text" class="form-control" id="orderId" placeholder="Enter Order Id" name="orderId" [(ngModel)]="order.orderId" disabled>
+        </div>
+        <div class="form-group">
+            <label for="userId">User Id</label>
+            <input type="text" class="form-control" id="userId" placeholder="Enter User Id" name="userId" [(ngModel)]="order.userId" disabled>
+        </div>
+        <div class="form-group">
+            <label for="cartId">Cart Id</label>
+            <input type="text" class="form-control" id="cartId" placeholder="Enter Cart Id" name="cartId" [(ngModel)]="order.cartId" disabled>
+        </div>
+        <div class="form-group">
+            <label for="shipmentAddress">Shipment Address</label>
+            <input type="text" class="form-control" id="shipmentAddress" placeholder="Enter Shipment Address" name="shipmentAddress" [(ngModel)]="order.shipmentAddress">
+        </div>
+        <div class="form-group">
+            <label for="genre">Select Order Status</label>
+            <select class="form-control" id="genre" name="genre" [(ngModel)]="order.orderStatus">
+              <option value="Pending"> Pending </option>
+              <option value="Shipped"> Shipped </option>
+              <option value="Delivered"> Delivered </option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Edit Order</button>
+    </form>
+
+</div>

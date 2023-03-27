@@ -18,6 +18,9 @@ namespace Users.Repositories
         {
             try
             {
+                var newCart = _ecommerceContext.Tcarts.OrderByDescending(a => a.CartId).First();
+                user.CartId = newCart.CartId;
+
                 _ecommerceContext?.Tusers.AddAsync(user);
                 await _ecommerceContext?.SaveChangesAsync();
                 return await _ecommerceContext.Tusers.ToListAsync();
@@ -29,7 +32,7 @@ namespace Users.Repositories
 
         }
 
-        public async Task<string> DeleteUSer(int id)
+        public async Task<string> DeleteUser(int id)
         {
             try
             {

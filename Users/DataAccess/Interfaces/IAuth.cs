@@ -6,6 +6,6 @@ namespace Users.DataAccess.Interfaces
     {
         public UserDTO LoginUser(UserDTO user);
 
-        public Task<Tuser> RegisterUser(Tuser user);
+        public Task<UserDTO> RegisterUser(Tuser user);
     }
 }

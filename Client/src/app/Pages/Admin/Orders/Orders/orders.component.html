@@ -1,0 +1,39 @@
+<div class="container">
+
+    <br/>
+    <br/>
+    
+    <div class="row">
+        <div class="col-9">
+            <h2>Orders Table</h2>
+        </div>
+    </div>
+    <br/>
+    <table *ngIf="orders.length > 0" class="table table-borderless">
+        <thead>
+            <tr>
+            <th scope="col">Order Id</th>
+            <th scope="col">User Id</th>
+            <th scope="col">cart Id</th>
+            <th scope="col">Shipment Address</th>
+            <th scope="col">Order Status</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders">
+                <td>{{order.orderId}}</td>
+                <td>{{order.userId}}</td>
+                <td>{{order.cartId}}</td>
+                <td>{{order.shipmentAddress}}</td>
+                <td>{{order.orderStatus}}</td>
+                <td>
+                    <button type="button" class="btn btn-dark" routerLink="updateOrder/{{order.orderId}}">Edit</button>
+                    &nbsp; &nbsp;
+                    <button type="button" class="btn btn-danger" (click)="deleteOrder(order.orderId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
