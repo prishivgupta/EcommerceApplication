@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Products.Models;
 using Users.Commands.AuthCommands;
+using Users.Commands.UserCommands;
 
 namespace Users.Controllers
 {
@@ -24,6 +25,14 @@ namespace Users.Controllers
             var users = _mediator.Send(new LoginUserCommand(user));
             return Ok(users);
 
+        }
+
+        [HttpPost]
+        [Route("RegisterUser")]
+        public async Task<ActionResult> RegisterUser([FromBody] Tuser user)
+        {
+            await _mediator.Send(new RegisterUserCommand(user));
+            return StatusCode(201);
         }
     }
 }

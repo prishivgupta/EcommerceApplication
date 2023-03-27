@@ -2,6 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using Products.DataAccess;
 using Products.Models;
+using System.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -16,9 +17,10 @@ namespace Users.Repositories
 
         private readonly IConfiguration _configuration;
 
-        public AuthRepository(EcommerceContext ecommerceContext)
+        public AuthRepository(EcommerceContext ecommerceContext, IConfiguration configuration)
         {
             _ecommerceContext = ecommerceContext;
+            _configuration = configuration;
         }
 
         public string generateToken(Tuser user)
@@ -29,8 +31,11 @@ namespace Users.Repositories
             var tokenClaims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.UserName),
-                new Claim(ClaimTypes.Email, user.UserEmail),
-                new Claim(ClaimTypes.Role, user.UserRole)
+                new Claim("UserName", user.UserName.ToString()),
+                new Claim("UserEmail", user.UserEmail.ToString()),
+                new Claim("UserRole", user.UserRole.ToString()),
+                new Claim("UserPassword", user.UserId.ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
             };
 
             var tokens = new JwtSecurityToken(_configuration["jwt:Issuer"],
@@ -49,7 +54,7 @@ namespace Users.Repositories
             {
                 if (user != null)
                 {
-                    var userExist = _ecommerceContext.Tusers.Where(u => u.UserEmail == user.UserName && u.UserPassword == user.UserPassword).FirstOrDefault();
+                    var userExist = _ecommerceContext.Tusers.Where(u => u.UserEmail == user.UserEmail && u.UserPassword == user.UserPassword).FirstOrDefault();
 
                     if (userExist != null)
                     {
@@ -74,5 +79,18 @@ namespace Users.Repositories
             }
         }
 
+        public async Task<Tuser> RegisterUser(Tuser user)
+        {
+            try
+            {
+                _ecommerceContext?.Tusers.AddAsync(user);
+                await _ecommerceContext?.SaveChangesAsync();
+                return user;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

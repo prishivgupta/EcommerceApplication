@@ -83,6 +83,30 @@
       ],
       "UpstreamPathTemplate": "/gateway/Auth",
       "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Order",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7137
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Order",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Order/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7137
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/Order/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
     }
   ]
 }

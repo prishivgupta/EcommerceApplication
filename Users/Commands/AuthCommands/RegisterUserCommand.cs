@@ -1,6 +1,9 @@
-﻿namespace Users.Commands.AuthCommands
+﻿using MediatR;
+using Products.Models;
+
+namespace Users.Commands.AuthCommands
 {
-    public class RegisterUserCommand
+    public record RegisterUserCommand(Tuser user) : IRequest<Tuser>
     {
     }
 }
