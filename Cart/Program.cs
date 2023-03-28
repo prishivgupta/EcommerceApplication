@@ -2,7 +2,7 @@ using Cart.DataAccess.Interfaces;
 using Cart.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Cart.DataAccess;
+using Products.DataAccess;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Product } from 'src/app/Models/Product';
+import { CartItem } from 'src/app/Models/CartItem';
 
 @Injectable({
   providedIn: 'root'

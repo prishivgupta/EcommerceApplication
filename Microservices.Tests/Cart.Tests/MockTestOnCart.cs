@@ -1,6 +1,6 @@
 ﻿using Cart.Commands;
 using Cart.Controllers;
-using Cart.Models;
+using Products.Models;
 using Cart.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

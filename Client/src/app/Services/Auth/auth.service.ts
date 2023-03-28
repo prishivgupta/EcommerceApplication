@@ -24,8 +24,9 @@ export class AuthService {
 
   storeToken(user: any) {
     localStorage.setItem('token', user.token)
-    console.log(user)
+    localStorage.setItem('cartId', user.cartId)
     localStorage.setItem('userRole', user.userRole)
+    localStorage.setItem('userId', user.userId)
   }
 
   getToken() {

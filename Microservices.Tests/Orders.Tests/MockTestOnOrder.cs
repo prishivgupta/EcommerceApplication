@@ -48,6 +48,31 @@ namespace Microservices.Tests.Order.Tests
             Assert.Equal(3, model.Count());
 
         }
+        [Fact]
+        public async Task getMyOrders()
+        {
+            // Arrange
+            var queryResult = new List<Torder>
+        {
+            new Torder { OrderId = 1, OrderStatus = "Pending", UserId = 1, CartId = 2,ShipmentAddress="Bangalore"},
+            new Torder { OrderId = 2, OrderStatus = "Pending", UserId = 1, CartId = 2,ShipmentAddress="Manglore" },
+            new Torder { OrderId = 3, OrderStatus = "Pending", UserId = 1, CartId = 2,ShipmentAddress="Chennai" }
+        };
+
+            //Act
+            _mockMediator.Setup(m => m.Send(It.IsAny<GetMyOrdersQuery>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(queryResult);
+
+            // Act
+            var result = await _orderController.GetMyOrders(1);
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result);
+            var actionResult = Assert.IsType<OkObjectResult>(result);
+            var model = Assert.IsAssignableFrom<List<Torder>>(actionResult.Value);
+            Assert.Equal(3, model.Count());
+
+        }
 
         [Fact]
         public async Task CreateNew_ReturnsCreatedResult()

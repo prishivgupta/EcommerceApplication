@@ -1,7 +1,7 @@
 ﻿using Cart.DataAccess.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Cart.DataAccess;
-using Cart.Models;
+using Products.DataAccess;
+using Products.Models;
 
 namespace Cart.Repositories
 {

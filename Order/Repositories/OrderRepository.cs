@@ -20,6 +20,17 @@ namespace Order.Repositories
             {
                 _ecommerceContext?.Torders.AddAsync(order);
                 await _ecommerceContext?.SaveChangesAsync();
+
+                var newCart = _ecommerceContext.Tcarts.OrderByDescending(a => a.CartId).First();
+                var p = await _ecommerceContext.Tusers.FindAsync(order.UserId);
+
+                if (p != null)
+                {
+                    p.CartId = newCart.CartId;
+
+                    await _ecommerceContext.SaveChangesAsync();
+                }
+
                 return await _ecommerceContext.Torders.ToListAsync();
             }
             catch (Exception ex)
@@ -89,6 +100,7 @@ namespace Order.Repositories
                     p.CartId = order.CartId;
                     p.UserId = order.UserId;
                     p.DateOfPurchase = order.DateOfPurchase;
+                    p.PaymentMethod = order.PaymentMethod;
 
                     await _ecommerceContext.SaveChangesAsync();
                 }

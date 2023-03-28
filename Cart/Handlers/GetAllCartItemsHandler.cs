@@ -1,7 +1,7 @@
 ﻿using Cart.DataAccess.Interfaces;
 using Cart.Queries;
 using MediatR;
-using Cart.Models;
+using Products.Models;
 
 namespace Cart.Handlers
 {

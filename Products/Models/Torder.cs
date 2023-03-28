@@ -22,6 +22,8 @@ namespace Products.Models
 
         public string OrderStatus { get; set; }
 
+        public string PaymentMethod { get; set; }
+
         public DateTime DateOfPurchase { get; set; }
     }
 }

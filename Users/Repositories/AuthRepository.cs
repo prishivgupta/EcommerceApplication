@@ -64,6 +64,7 @@ namespace Users.Repositories
                         user.UserId = userExist.UserId;
                         user.UserName = userExist.UserName;
                         user.UserEmail = userExist.UserEmail;
+                        user.CartId = userExist.CartId;
 
                         return user;
                     }
@@ -110,6 +111,7 @@ namespace Users.Repositories
                     UserRole = user.UserRole,
                     Message = "Login Successful!",
                     Token = generateToken(user),
+                    CartId = newCart.CartId,
                 };
 
                 return newUser;

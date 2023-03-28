@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Cart.Models;
+using Products.Models;
 
 namespace Cart.Queries
 {

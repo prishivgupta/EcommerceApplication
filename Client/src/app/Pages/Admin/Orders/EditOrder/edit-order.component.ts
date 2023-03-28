@@ -18,7 +18,8 @@ export class EditOrderComponent {
     cartId: 0,
     userId: 0,
     shipmentAddress: '',
-    orderStatus: ''
+    orderStatus: '',
+    paymentMethod: ''
   };
 
   goBack(): void {
@@ -36,7 +37,8 @@ export class EditOrderComponent {
       this.order.userId = order.userId,
       this.order.cartId = order.cartId,
       this.order.shipmentAddress = order.shipmentAddress,
-      this.order.orderStatus = order.orderStatus
+      this.order.orderStatus = order.orderStatus,
+      this.order.paymentMethod = order.paymentMethod
     });
   }
 

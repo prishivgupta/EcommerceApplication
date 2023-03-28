@@ -3,5 +3,6 @@ export interface Order {
     userId: number,
     cartId: number,
     shipmentAddress: string,
-    orderStatus: string
+    orderStatus: string,
+    paymentMethod: string
 }

@@ -1,5 +1,5 @@
 ﻿using Cart.Commands;
-using Cart.Models;
+using Products.Models;
 using Cart.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -9,7 +9,6 @@ namespace Cart.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class CartController : ControllerBase
     {
         private readonly IMediator mediator;
