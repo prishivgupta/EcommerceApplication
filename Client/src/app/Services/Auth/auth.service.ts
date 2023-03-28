@@ -22,8 +22,10 @@ export class AuthService {
     return this.http.post<any>(this.baseUrl + 'RegisterUser', data)
   }
 
-  storeToken(token: string) {
-    localStorage.setItem('token', token)
+  storeToken(user: any) {
+    localStorage.setItem('token', user.token)
+    console.log(user)
+    localStorage.setItem('userRole', user.userRole)
   }
 
   getToken() {

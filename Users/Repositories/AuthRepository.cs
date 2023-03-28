@@ -60,6 +60,10 @@ namespace Users.Repositories
                     {
                         user.Message = "Login Successful!";
                         user.Token = generateToken(userExist);
+                        user.UserRole = userExist.UserRole;
+                        user.UserId = userExist.UserId;
+                        user.UserName = userExist.UserName;
+                        user.UserEmail = userExist.UserEmail;
 
                         return user;
                     }

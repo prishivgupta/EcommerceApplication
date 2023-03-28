@@ -20,8 +20,7 @@ export class LoginComponent {
 
   loginUser(login : Login): void {
     this.authService.login(login).subscribe(data => {
-      this.authService.storeToken(data.result.token)
-      console.log(data.result.token)
+      this.authService.storeToken(data.result)
       this.routes.navigate([''])
     })
   }

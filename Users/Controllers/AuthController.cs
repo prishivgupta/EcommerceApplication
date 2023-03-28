@@ -31,8 +31,8 @@ namespace Users.Controllers
         [Route("RegisterUser")]
         public async Task<ActionResult> RegisterUser([FromBody] Tuser user)
         {
-            await _mediator.Send(new RegisterUserCommand(user));
-            return StatusCode(201);
+            var users = await _mediator.Send(new RegisterUserCommand(user));
+            return Ok(users);
         }
     }
 }

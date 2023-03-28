@@ -10,7 +10,7 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl: string = "https://localhost:7172/api/Category/";
+  baseUrl: string = "https://localhost:7287/gateway/Category/";
 
   handleError(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {

@@ -6,12 +6,13 @@ using Payment.Commands;
 using Payment.Models;
 using Payment.Queries;
 using Payment.Repository;
+using Transactions.Commands;
 
 namespace Payment.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class TransactionController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -26,16 +27,24 @@ namespace Payment.Controllers
         [Route("getAllTransactions")]
         public async Task<IActionResult> GetTransactions()
         {
-            var employees = await _mediator.Send(new GetAllTransactionsQuery());
-            return Ok(employees);
+            var transactionDetails = await _mediator.Send(new GetAllTransactionsQuery());
+            return Ok(transactionDetails);
         }
 
         [HttpGet]
         [Route("getTransactionById/{id}")]
         public async Task<IActionResult> GetTransactionByid(string id)
         {
-            var employees = await _mediator.Send(new GetTransactionByIdQuery(id));
-            return Ok(employees);
+            var transaction = await _mediator.Send(new GetTransactionByIdQuery(id));
+            return Ok(transaction);
+        }
+
+        [HttpPost]
+        [Route("addTransaction")]
+        public async Task<ActionResult> CreateNew([FromBody] TransactionDetails transaction)
+        {
+            await _mediator.Send(new AddTransactionCommand(transaction));
+            return StatusCode(201);
         }
 
 

@@ -7,19 +7,19 @@ namespace Payment.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string id { get; set; }
+        public string? id { get; set; }
 
-        public int? OrderId;
+        public int OrderId { get; set; }
 
         public string UserName { get; set; }
 
         public string UserEmail { get; set; }
 
-        public string? PaymentStatus;
+        public string PaymentStatus { get; set; }
 
-        public string? ShipmentAddress;
+        public string ShipmentAddress { get; set; }
 
-        public string? PaymentMethod;
+        public string PaymentMethod { get; set; }
 
     }
 }

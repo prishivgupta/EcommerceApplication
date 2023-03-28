@@ -1,1 +1,39 @@
-<p>transactions works!</p>
+<div class="container">
+
+    <br/>
+    <br/>
+    
+    <div class="row">
+        <div class="col-9">
+            <h2>Transactions Table</h2>
+        </div>
+    </div>
+    <br/>
+    <table *ngIf="transactions.length > 0" class="table table-borderless">
+        <thead>
+            <tr>
+            <th scope="col">Transaction Id</th>
+            <th scope="col">User Name</th>
+            <th scope="col">User Email</th>
+            <th scope="col">Payment Method</th>
+            <th scope="col">Payment Status</th>
+            <th scope="col">Shipment Address</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transactions">
+                <td>{{transaction._id}}</td>
+                <td>{{transaction.userName}}</td>
+                <td>{{transaction.userEmail}}</td>
+                <td>{{transaction.paymentMethod}}</td>
+                <td>{{transaction.paymentStatus}}</td>
+                <td>{{transaction.shipmentAddress}}</td>
+                <td>
+                    <button type="button" class="btn btn-dark" routerLink="updateTransaction/{{transaction._id}}">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

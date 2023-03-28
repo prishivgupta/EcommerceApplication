@@ -30,7 +30,7 @@ namespace Payment.Repository
 
         }
 
-        public async Task<string> UpdateAsync(string id, TransactionDetails updatedPayment)
+        public async Task<string> UpdateAsync(string id,TransactionDetails updatedPayment)
         {
             await _paymentCollection.ReplaceOneAsync(x => x.id == id, updatedPayment);
             return "updated";
@@ -47,6 +47,12 @@ namespace Payment.Repository
             return _paymentCollection.Find(x => x.id == id).FirstOrDefault();
         }
 
-        
+        public async Task<string> CreateAsync(TransactionDetails transaction)
+        {
+            await _paymentCollection.InsertOneAsync(transaction);
+            return "added";
+        }
+
+
     }
 }

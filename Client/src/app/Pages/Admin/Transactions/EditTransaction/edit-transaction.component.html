@@ -1,1 +1,45 @@
-<p>edit-transaction works!</p>
+<div class="container">
+
+    <br/>
+    
+    <a href="#" class="badge badge-dark" (click)="goBack();">Go Back</a>
+
+    <br/>
+    <br/>
+
+    <h2>Edit Transaction</h2>
+
+    <br/>
+
+    <form #Form="ngForm" (ngSubmit)="editTransaction(transaction)">
+      <div class="form-group">
+        <label for="_id">Transaction Id</label>
+        <input type="text" class="form-control" id="_id" placeholder="Enter Category Id" name="_id" [(ngModel)]="transaction._id" disabled>
+        </div>
+        <div class="form-group">
+          <label for="userName">User Name</label>
+          <input type="text" class="form-control" id="userName" placeholder="Enter User Name" name="userName" [(ngModel)]="transaction.userName" disabled>
+        </div>
+        <div class="form-group">
+            <label for="userEmail">User Email</label>
+            <input type="text" class="form-control" id="userEmail" placeholder="Enter User Email" name="userEmail" [(ngModel)]="transaction.userEmail" disabled>
+        </div>
+        <div class="form-group">
+            <label for="shipmentAddress">Shipment Address</label>
+            <input type="text" class="form-control" id="shipmentAddress" placeholder="Enter Shipment Address" name="shipmentAddress" [(ngModel)]="transaction.shipmentAddress" disabled>
+        </div>
+        <div class="form-group">
+            <label for="paymentMethod">Payment Method</label>
+            <input type="text" class="form-control" id="paymentMethod" placeholder="Enter Payment Method" name="paymentMethod" [(ngModel)]="transaction.paymentMethod" disabled>
+        </div>
+        <div class="form-group">
+            <label for="paymentStatus">Select Payment Status</label>
+            <select class="form-control" id="paymentStatus" name="paymentStatus" [(ngModel)]="transaction.paymentStatus">
+              <option value="Incomplete"> Incomplete </option>
+              <option value="Completed"> Completed </option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Edit Transaction</button>
+    </form>
+
+</div>
