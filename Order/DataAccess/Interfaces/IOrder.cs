@@ -14,5 +14,7 @@ namespace Order.DataAccess.Interfaces
 
         public Task<Torder> GetOrderById(int id);
 
+        public List<Torder> GetAllMyOrders(int id);
+
     }
 }

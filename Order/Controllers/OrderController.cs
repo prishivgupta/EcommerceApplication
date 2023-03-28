@@ -36,6 +36,14 @@ namespace Order.Controllers
             return Ok(product);
         }
 
+        [HttpGet]
+        [Route("GetMyOrders/{id}")]
+        public async Task<IActionResult> GetMyOrders(int id)
+        {
+            var order = await _mediator.Send(new GetMyOrdersQuery(id));
+            return Ok(order);
+        }
+
         [HttpPost]
         [Route("PlaceOrder")]
 

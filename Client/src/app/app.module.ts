@@ -22,6 +22,8 @@ import { EditOrderComponent } from './Pages/Admin/Orders/EditOrder/edit-order.co
 import { UsersComponent } from './Pages/Admin/Users/Users/users.component';
 import { AddUserComponent } from './Pages/Admin/Users/AddUser/add-user.component';
 import { EditUserComponent } from './Pages/Admin/Users/EditUser/edit-user.component';
+import { TransactionsComponent } from './Pages/Admin/Transactions/Transactions/transactions.component';
+import { EditTransactionComponent } from './Pages/Admin/Transactions/EditTransaction/edit-transaction.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { EditUserComponent } from './Pages/Admin/Users/EditUser/edit-user.compon
     EditOrderComponent,
     UsersComponent,
     AddUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    TransactionsComponent,
+    EditTransactionComponent
   ],
   imports: [
     BrowserModule,

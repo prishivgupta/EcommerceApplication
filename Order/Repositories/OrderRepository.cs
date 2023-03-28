@@ -102,5 +102,11 @@ namespace Order.Repositories
             }
 
         }
+
+        public  List<Torder> GetAllMyOrders(int id)
+        {
+           return  _ecommerceContext.Torders.Where(x => x.UserId==id).ToList();
+            
+        }
     }
 }
