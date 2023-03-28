@@ -24,6 +24,11 @@ import { EditUserComponent } from './Pages/Admin/Users/EditUser/edit-user.compon
 import { TransactionsComponent } from './Pages/Admin/Transactions/Transactions/transactions.component';
 import { EditTransactionComponent } from './Pages/Admin/Transactions/EditTransaction/edit-transaction.component';
 import { HomeComponent } from './Pages/User/Home/home.component';
+import { HeaderComponent } from './Components/Header/header.component';
+import { FooterComponent } from './Components/Footer/footer.component';
+import { ProductComponent } from './Pages/User/Product/product.component';
+import { CartComponent } from './Pages/User/Cart/cart.component';
+import { CheckoutComponent } from './Pages/User/Checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +49,12 @@ import { HomeComponent } from './Pages/User/Home/home.component';
     EditUserComponent,
     TransactionsComponent,
     EditTransactionComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    ProductComponent,
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

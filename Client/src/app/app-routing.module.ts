@@ -16,26 +16,33 @@ import { EditUserComponent } from './Pages/Admin/Users/EditUser/edit-user.compon
 import { UsersComponent } from './Pages/Admin/Users/Users/users.component';
 import { LoginComponent } from './Pages/Auth/Login/login.component';
 import { RegisterComponent } from './Pages/Auth/Register/register.component';
+import { CartComponent } from './Pages/User/Cart/cart.component';
+import { CheckoutComponent } from './Pages/User/Checkout/checkout.component';
 import { HomeComponent } from './Pages/User/Home/home.component';
+import { ProductComponent } from './Pages/User/Product/product.component';
 
 const routes: Routes = [
   { path:'', redirectTo:'users', pathMatch:'full' },
-  { path:'login', component: LoginComponent },
-  { path:'register', component: RegisterComponent },
-  { path:'categories', component: CategoriesComponent, canActivate: [AuthGuard] },
-  { path:'categories/addCategory', component: AddCategoryComponent, canActivate: [AuthGuard] },
-  { path:'categories/updateCategory/:id', component: EditCategoryComponent, canActivate: [AuthGuard] },
-  { path:'users', component: UsersComponent, canActivate: [AuthGuard] },
-  { path:'users/addUser', component: AddUserComponent, canActivate: [AuthGuard] },
-  { path:'users/updateUser/:id', component: EditUserComponent, canActivate: [AuthGuard] },
-  { path:'orders', component: OrdersComponent , canActivate: [AuthGuard] },
-  { path:'orders/updateOrder/:id', component: EditOrderComponent, canActivate: [AuthGuard] },
-  { path:'products', component: ProductsComponent, canActivate: [AuthGuard] },
-  { path:'products/addProduct', component: AddProductComponent, canActivate: [AuthGuard] },
-  { path:'products/updateProduct/:id', component: EditProductComponent, canActivate: [AuthGuard] },
-  { path:'transactions', component: TransactionsComponent , canActivate: [AuthGuard] },
-  { path:'transactions/updateTransaction/:id', component: EditTransactionComponent, canActivate: [AuthGuard] },
-  { path:'home', component: HomeComponent },
+  { path:'login', component: LoginComponent, pathMatch:'full' },
+  { path:'register', component: RegisterComponent, pathMatch:'full' },
+  { path:'categories', component: CategoriesComponent, canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'categories/addCategory', component: AddCategoryComponent, canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'categories/updateCategory/:id', component: EditCategoryComponent, canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'users', component: UsersComponent, canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'users/addUser', component: AddUserComponent, canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'users/updateUser/:id', component: EditUserComponent, canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'orders', component: OrdersComponent , canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'orders/updateOrder/:id', component: EditOrderComponent, canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'products', component: ProductsComponent, canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'products/addProduct', component: AddProductComponent, canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'products/updateProduct/:id', component: EditProductComponent, canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'transactions', component: TransactionsComponent , canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'transactions/updateTransaction/:id', component: EditTransactionComponent, canActivate: [AuthGuard], pathMatch:'full' },
+  { path:'home', component: HomeComponent, pathMatch:'full' },
+  { path:'product/:id', component: ProductComponent, pathMatch:'full' },
+  { path:'cart', component: CartComponent, pathMatch:'full' },
+  { path:'checkout', component: CheckoutComponent, pathMatch:'full' },
+  { path:'**', redirectTo:'home' },
 ];
 
 @NgModule({
