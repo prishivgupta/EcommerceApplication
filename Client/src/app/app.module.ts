@@ -29,6 +29,7 @@ import { FooterComponent } from './Components/Footer/footer.component';
 import { ProductComponent } from './Pages/User/Product/product.component';
 import { CartComponent } from './Pages/User/Cart/cart.component';
 import { CheckoutComponent } from './Pages/User/Checkout/checkout.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { CheckoutComponent } from './Pages/User/Checkout/checkout.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

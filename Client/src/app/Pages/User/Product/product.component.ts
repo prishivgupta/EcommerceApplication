@@ -3,15 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/Models/Product';
 import { CartService } from 'src/app/Services/Cart/cart.service';
 import { ProductService } from 'src/app/Services/Products/product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent {
 
-  constructor(private productService: ProductService, private cartService: CartService, private route: ActivatedRoute) {}
+export class ProductComponent {
+  
+  constructor(private toastr: ToastrService, private productService: ProductService, private cartService: CartService, private route: ActivatedRoute) {}
 
   product: Product = {
     productId: 0,
@@ -75,7 +77,7 @@ export class ProductComponent {
     this.cartItem.cartId = Number(localStorage.getItem('cartId'))
     this.cartItem.productId = productId
     this.cartItem.productQuantity = this.orderQuantity
-    this.cartService.addToCart(this.cartItem).subscribe();
+    this.cartService.addToCart(this.cartItem).subscribe(() => this.toastr.success('Added To Cart Successfully'));
   }
 
   ngOnInit(): void {
