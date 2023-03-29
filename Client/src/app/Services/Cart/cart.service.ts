@@ -10,7 +10,7 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl: string = "https://localhost:7019/api/Cart/";
+  baseUrl: string = "https://localhost:7287/gateway/Cart/";
 
   handleError(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {

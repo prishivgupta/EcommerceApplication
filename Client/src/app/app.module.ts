@@ -50,8 +50,8 @@ import { CheckoutComponent } from './Pages/User/Checkout/checkout.component';
     TransactionsComponent,
     EditTransactionComponent,
     HomeComponent,
-    HeaderComponent,
     FooterComponent,
+    HeaderComponent,
     ProductComponent,
     CartComponent,
     CheckoutComponent

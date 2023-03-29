@@ -21,6 +21,15 @@ namespace Order.Repositories
                 _ecommerceContext?.Torders.AddAsync(order);
                 await _ecommerceContext?.SaveChangesAsync();
 
+                var cart = new Tcart()
+                {
+                    Discount = 0,
+                    TotalCost = 0,
+                };
+
+                await _ecommerceContext.Tcarts.AddAsync(cart);
+                await _ecommerceContext?.SaveChangesAsync();
+
                 var newCart = _ecommerceContext.Tcarts.OrderByDescending(a => a.CartId).First();
                 var p = await _ecommerceContext.Tusers.FindAsync(order.UserId);
 

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Product } from 'src/app/Models/Product';
 import { User } from 'src/app/Models/User';
 
 @Injectable({
@@ -11,7 +10,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl: string = "https://localhost:7018/api/User/";
+  baseUrl: string = "https://localhost:7287/gateway/User/";
 
   handleError(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {

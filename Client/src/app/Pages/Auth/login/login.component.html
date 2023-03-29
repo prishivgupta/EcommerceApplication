@@ -4,10 +4,16 @@
 			<form #Form="ngForm" (ngSubmit)="loginUser(login)">
 				<h1>Sign in</h1>
 				<br/>
-				<input type="email" placeholder="Email" name="email" [(ngModel)]="login.userEmail"/>
-				<input type="password" placeholder="Password" name="password" [(ngModel)]="login.userPassword"/>
+				<input type="email" placeholder="Email" name="email" [(ngModel)]="login.userEmail" required>
+				<span *ngIf="login.userEmail.length == 0" style="color:red" ng-show="ngForm.email.$dirty && ngForm.email.$invalid">
+					<span ng-show="ngForm.email.$error.required">Email is required.</span>
+					</span>
+				<input type="password" placeholder="Password" name="password" [(ngModel)]="login.userPassword" required>
+				<span *ngIf="login.userPassword.length == 0" style="color:red" ng-show="ngForm.email.$dirty && ngForm.email.$invalid">
+					<span ng-show="ngForm.email.$error.required">Password is required.</span>
+					</span>
 				<a href="#">Forgot your password?</a>
-				<button type="submit">Sign In</button>
+				<button type="submit" [disabled]="!login.userEmail && !login.userPassword">Sign In</button>
 			</form>
 		</div>
 		<div class="overlay-container">

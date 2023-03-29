@@ -54,11 +54,19 @@ namespace Products.Repositories
             
         }
 
-        public async Task<List<Tproduct>> GetAllProducts()
+        public async Task<List<Tproduct>> GetAllProducts(int? categoryId, string? search)
         {
             try
             {
-                return await _ecommerceContext.Tproducts.Include(p => p.Category).ToListAsync();
+                if (categoryId == null)
+                {
+                    var searchFilter = search == null ? "" : search.ToLower();
+                    return await _ecommerceContext.Tproducts.Where(p =>  p.ProductName.ToLower().Contains(searchFilter)).Include(p => p.Category).ToListAsync();
+                }
+                else
+                {
+                    return await _ecommerceContext.Tproducts.Where(p => p.CategoryId == categoryId && p.ProductName.ToLower().Contains(search.ToLower())).Include(p => p.Category).ToListAsync();
+                }
             }
             catch (Exception ex)
             {

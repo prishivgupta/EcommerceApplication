@@ -3,10 +3,22 @@
         <div class="form-container sign-in-container">
             <form #Form="ngForm" (ngSubmit)="registerUser(register)">
                 <h1>Create Account</h1>
-                <input type="text" placeholder="Username" name="name"  [(ngModel)]="register.userName"/>
-                <input type="email" placeholder="Email" name="email" [(ngModel)]="register.userEmail"/>
-				<input type="password" placeholder="Password" name="password" [(ngModel)]="register.userPassword"/>
-                <button type="submit">Register</button>
+                <input type="text" placeholder="Username" name="name"  [(ngModel)]="register.userName" required>
+                <span *ngIf="register.userName.length == 0" style="color:red" ng-show="ngForm.email.$dirty && ngForm.email.$invalid">
+                    <span ng-show="ngForm.email.$error.required">UserName is required.</span>
+                </span>
+
+                <input type="email" placeholder="Email" name="email" [(ngModel)]="register.userEmail" required>
+                <span *ngIf="register.userEmail.length == 0" style="color:red" ng-show="ngForm.email.$dirty && ngForm.email.$invalid">
+					<span ng-show="ngForm.email.$error.required">Email is required.</span>
+				</span>
+
+				<input type="password" placeholder="Password" name="password" [(ngModel)]="register.userPassword"required>
+                <span *ngIf="register.userPassword.length == 0" style="color:red" ng-show="ngForm.email.$dirty && ngForm.email.$invalid">
+					<span ng-show="ngForm.email.$error.required">Password is required.</span>
+				</span>
+
+                <button type="submit" [disabled]="!register.userName && !register.userEmail && !register.userPassword">Register</button>
             </form>
         </div>
         <div class="overlay-container">

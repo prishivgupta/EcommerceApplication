@@ -10,7 +10,7 @@ export class TransactionService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl: string = "https://localhost:7040/api/Transaction/";
+  baseUrl: string = "https://localhost:7287/gateway/Transaction/";
 
   handleError(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {

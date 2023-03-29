@@ -12,7 +12,6 @@ namespace Products.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IMediator mediator;
@@ -24,9 +23,9 @@ namespace Products.Controllers
 
         [HttpGet]
         [Route("GetAllProducts")]
-        public async Task<IActionResult> GetAllProducts()
+        public async Task<IActionResult> GetAllProducts(int? categoryId, string? search)
         {
-            var products = await mediator.Send(new GetAllProductsQuery());
+            var products = await mediator.Send(new GetAllProductsQuery(categoryId, search));
             return Ok(products);
         }
 

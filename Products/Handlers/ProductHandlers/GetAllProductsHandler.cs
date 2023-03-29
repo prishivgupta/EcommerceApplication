@@ -16,7 +16,7 @@ namespace Products.Handlers.ProductHandlers
 
         public async Task<List<Tproduct>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
         {
-            return await Task.FromResult(await product.GetAllProducts());
+            return await Task.FromResult(await product.GetAllProducts(request.categoryId, request.search));
         }
     }
 }

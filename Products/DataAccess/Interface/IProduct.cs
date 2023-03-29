@@ -8,7 +8,7 @@ namespace Products.DataAccess.Interface
 
         public Task<List<Tproduct>> UpdateProduct(Tproduct product);
 
-        public Task<List<Tproduct>> GetAllProducts();
+        public Task<List<Tproduct>> GetAllProducts(int? categoryId, string? search);
 
         public Task<string> DeleteProduct(int id);
 

@@ -12,7 +12,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private routes: Router) { }
 
-  baseUrl: string = "https://localhost:7018/api/Auth/";
+  baseUrl: string = "https://localhost:7287/gateway/Auth/";
 
   login(data: Login): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'LoginUser', data)

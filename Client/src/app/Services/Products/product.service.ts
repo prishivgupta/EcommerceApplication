@@ -11,7 +11,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl: string = "https://localhost:7172/api/Product/";
+  baseUrl: string = "https://localhost:7287/gateway/Product/";
 
   handleError(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {
@@ -22,8 +22,8 @@ export class ProductService {
     return throwError('Something happened, please try again');
   }
 
-  getAllProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl + 'GetAllProducts').pipe(catchError(this.handleError))
+  getAllProducts(categoryId?: number, search?: string ): Observable<Product[]> {
+    return this.http.get<Product[]>(this.baseUrl + `GetAllProducts?search=${search}`).pipe(catchError(this.handleError))
   }
 
   getProductById(id: number): Observable<any> {
