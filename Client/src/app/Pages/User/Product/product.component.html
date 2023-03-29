@@ -21,22 +21,17 @@
             <article class="gallery-wrap">
                <div class="img-big-wrap img-thumbnail mb-3">
                   <a data-fslightbox="mygalley" data-type="image"> 
-                  <img class="product-img-main" height="560" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80"> 
+                  <img class="product-img-main" height="560" src="{{getImage1(product.productImages)}}"> 
                   </a>
                </div>
                <!-- img-big-wrap.// -->
                <div class="thumbs-wrap">
-                  <a data-fslightbox="mygalley" data-type="image" class="item-thumb"> 
-                  <img class="product-img" width="80" height="80" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80"> 
-                  </a>
-                  &nbsp; &nbsp;
-                  <a data-fslightbox="mygalley" data-type="image" class="item-thumb"> 
-                  <img class="product-img" width="80" height="80" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80">  
-                  </a>
-                  &nbsp; &nbsp;
-                  <a data-fslightbox="mygalley" data-type="image" class="item-thumb"> 
-                  <img class="product-img" width="80" height="80" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&w=1000&q=80">  
-                  </a>
+                  <span *ngFor="let image of images">
+                     <a data-fslightbox="mygalley" data-type="image" class="item-thumb"> 
+                        <img class="product-img" width="80" height="80" src="{{image}}"> 
+                     </a>
+                     &nbsp; &nbsp;
+                  </span>
                </div>
                <!-- thumbs-wrap.// -->
             </article>

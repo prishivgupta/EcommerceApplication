@@ -23,14 +23,14 @@
         </thead>
         <tbody>
             <tr *ngFor="let transaction of transactions">
-                <td>{{transaction._id}}</td>
+                <td>{{transaction.id}}</td>
                 <td>{{transaction.userName}}</td>
                 <td>{{transaction.userEmail}}</td>
                 <td>{{transaction.paymentMethod}}</td>
                 <td>{{transaction.paymentStatus}}</td>
                 <td>{{transaction.shipmentAddress}}</td>
                 <td>
-                    <button type="button" class="btn btn-dark" routerLink="updateTransaction/{{transaction._id}}">Edit</button>
+                    <button type="button" class="btn btn-dark" routerLink="updateTransaction/{{transaction.id}}">Edit</button>
                 </td>
             </tr>
         </tbody>

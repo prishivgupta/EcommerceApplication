@@ -28,6 +28,9 @@
                      <div class="col-sm-12">
                         <label for="address" class="form-label">Address</label>
                         <input type="text" class="form-control"  placeholder="Enter Address" name="address" id="address" [(ngModel)]="address.address">
+                        <span *ngIf="address.address.length == 0" style="color:red" ng-show="ngForm.address.$dirty && ngForm.address.$invalid">
+                           <span ng-show="ngForm.address.$error.required">Address is required.</span>
+                        </span>
                      </div>
                      <div class="col-sm-12 p-2">
 
@@ -36,16 +39,25 @@
                      <div class="col-sm-4 mb-3">
                         <label for="state" class="form-label">State</label>
                         <input type="text" class="form-control"  placeholder="Enter State" name="state" id="state" [(ngModel)]="address.state">
+                        <span *ngIf="address.state.length == 0" style="color:red" ng-show="ngForm.state.$dirty && ngForm.state.$invalid">
+                           <span ng-show="ngForm.state.$error.required">State is required.</span>
+                        </span>
                      </div>
                      <!-- col end.// -->
                      <div class="col-sm-4 col-6 mb-3">
                         <label for="city" class="form-label">City</label>
                         <input type="text" class="form-control"  placeholder="Enter City" name="city" id="city" [(ngModel)]="address.city">
+                        <span *ngIf="address.city.length == 0" style="color:red" ng-show="ngForm.city.$dirty && ngForm.city.$invalid">
+                           <span ng-show="ngForm.city.$error.required">City is required.</span>
+                        </span>
                      </div>
                      <!-- col end.// -->
                      <div class="col-sm-4 col-6 mb-3">
                         <label for="pincode" class="form-label">Pincode</label>
                         <input type="text" class="form-control"  placeholder="Enter Pincode" name="pincode" id="pincode" [(ngModel)]="address.pincode">
+                        <span *ngIf="address.pincode.length == 0" style="color:red" ng-show="ngForm.pincode.$dirty && ngForm.pincode.$invalid">
+                           <span ng-show="ngForm.pincode.$error.required">Address is required.</span>
+                        </span>
                      </div>
                      <!-- col end.// -->
                   </div>
@@ -82,7 +94,7 @@
                   <div class="float-end">
                      <button class="btn btn-light" routerLink="/home">Cancel</button>
                      &nbsp; &nbsp;
-                     <button class="btn color" (click)="placeOrder()">Place Order</button>
+                     <button class="btn color" (click)="placeOrder()" [disabled]="address.address.length == 0 && address.state.length == 0 && address.city.length == 0 && address.state.length == 0">Place Order</button>
                   </div>
                </div>
                <!-- card-body end.// -->

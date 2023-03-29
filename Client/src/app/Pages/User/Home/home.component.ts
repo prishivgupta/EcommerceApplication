@@ -28,6 +28,11 @@ export class HomeComponent {
     productQuantity: 1
   }
 
+  getImage(image: any): void {
+    let images = JSON.parse("[" + image + "]")
+    return images[1]
+  }
+
   logout(): void {
     this.authService.logout();
   }

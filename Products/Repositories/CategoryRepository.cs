@@ -39,7 +39,7 @@ namespace Products.Repositories
                 if (category != null)
                 {
                     _ecommerceContext.Tcategories.Remove(category);
-                    _ecommerceContext?.SaveChangesAsync();
+                    await _ecommerceContext?.SaveChangesAsync();
                     return "Deleted Successfully";
                 }
                 else

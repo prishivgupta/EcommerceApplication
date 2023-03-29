@@ -16,7 +16,7 @@ export class ProductsComponent {
   
 
   getAllProducts(): void {
-    this.productService.getAllProducts().subscribe(products => this.products = products);
+    this.productService.getAllProducts(1,"").subscribe(products => this.products = products);
   }
 
   deleteProduct(id: number): void {

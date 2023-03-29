@@ -14,7 +14,7 @@
     <form #Form="ngForm" (ngSubmit)="editTransaction(transaction)">
       <div class="form-group">
         <label for="_id">Transaction Id</label>
-        <input type="text" class="form-control" id="_id" placeholder="Enter Category Id" name="_id" [(ngModel)]="transaction._id" disabled>
+        <input type="text" class="form-control" id="_id" placeholder="Enter Category Id" name="_id" [(ngModel)]="transaction.id" disabled>
         </div>
         <div class="form-group">
           <label for="userName">User Name</label>

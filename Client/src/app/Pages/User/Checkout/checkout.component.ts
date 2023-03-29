@@ -3,6 +3,7 @@ import { CartItem } from 'src/app/Models/CartItem';
 import { Order } from 'src/app/Models/Order';
 import { CartService } from 'src/app/Services/Cart/cart.service';
 import { OrderService } from 'src/app/Services/Orders/order.service';
+import { TransactionService } from 'src/app/Services/Transactions/transaction.service';
 import { UserService } from 'src/app/Services/Users/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/Services/Users/user.service';
 })
 export class CheckoutComponent {
 
-  constructor(private cartService: CartService,private orderService: OrderService,private userService: UserService) {}
+  constructor(private cartService: CartService,private orderService: OrderService,private userService: UserService, private transactionService: TransactionService) {}
 
   cartItems: CartItem[] = [];
 
@@ -31,6 +32,13 @@ export class CheckoutComponent {
     city: '',
     pincode: ''
   }
+  transaction: any = {
+    orderId: 0,
+    userName: "",
+    userEmail: "",
+    shipmentAddress: "",
+    paymentMethod: ""
+  }
 
   orderSuccess = false;
 
@@ -42,7 +50,18 @@ export class CheckoutComponent {
     this.userService.getUserById(Number(localStorage.getItem('userId'))).subscribe( (user) => {
       localStorage.setItem('cartId', user.cartId) 
       this.orderSuccess = true;
+      this.transaction.orderId = this.order.orderId
+      this.transaction.userName = user.userName
+      this.transaction.userEmail = user.userEmail
+      this.transaction.paymentStatus = "Success"
+      this.transaction.shipmentAddress = this.order.shipmentAddress
+      this.transaction.paymentMethod = this.order.paymentMethod
+      this.addTransaction()
     })
+  }
+
+  addTransaction(): void {
+    this.transactionService.addTransaction(this.transaction).subscribe()
   }
 
   placeOrder(): void {

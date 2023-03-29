@@ -22,19 +22,23 @@ export class TransactionService {
   }
 
   getAllTransactions(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.baseUrl + 'GetAllTransactions').pipe(catchError(this.handleError))
+    return this.http.get<Transaction[]>(this.baseUrl + 'getAllTransactions').pipe(catchError(this.handleError))
   }
 
   getTransactionById(id: string): Observable<any> {
-    return this.http.get<any>(this.baseUrl + `GetTransactionById/${id}`).pipe(catchError(this.handleError))
+    return this.http.get<any>(this.baseUrl + `getTransactionById/${id}`).pipe(catchError(this.handleError))
+  }
+
+  addTransaction(transaction: Transaction): Observable<any> {
+    return this.http.post<any>(this.baseUrl + 'addTransaction', transaction).pipe(catchError(this.handleError))
   }
 
   updateTransaction(transaction: Transaction): Observable<any> {
-    return this.http.put<any>(this.baseUrl + `UpdateTransaction/${transaction._id}`, transaction).pipe(catchError(this.handleError))
+    return this.http.put<any>(this.baseUrl + `updateTransaction/${transaction.id}`, transaction).pipe(catchError(this.handleError))
   }
 
   deleteTransaction(id: string): Observable<any> {
-    return this.http.delete<any>(this.baseUrl + `DeleteTransaction/${id}`).pipe(catchError(this.handleError))
+    return this.http.delete<any>(this.baseUrl + `deleteTransaction/${id}`).pipe(catchError(this.handleError))
   }
 
 }

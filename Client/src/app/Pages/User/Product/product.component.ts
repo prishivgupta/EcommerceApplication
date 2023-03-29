@@ -33,6 +33,19 @@ export class ProductComponent {
 
   orderQuantity = 1;
 
+  images = [];
+
+  getImage1(image: any): void {
+    this.getImages(image)
+    let images = JSON.parse("[" + image + "]")
+    return images[1]
+  }
+
+  getImages(image: any): void {
+    let images = JSON.parse("[" + image + "]")
+    this.images = images;
+  }
+
   getProductById(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.productService.getProductById(id).subscribe(product => {

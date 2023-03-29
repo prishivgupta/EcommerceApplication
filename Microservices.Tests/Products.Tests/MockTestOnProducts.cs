@@ -37,7 +37,7 @@ namespace Microservices.Tests.Products.Tests
                 .ReturnsAsync(queryResult);
 
             // Act
-            var result = await _productController.GetAllProducts();
+            var result = await _productController.GetAllProducts(1, "");
 
             // Assert
             Assert.IsType<OkObjectResult>(result);

@@ -50,7 +50,7 @@ namespace Users.Repositories
                 if (user != null)
                 {
                     _ecommerceContext.Tusers.Remove(user);
-                    _ecommerceContext?.SaveChangesAsync();
+                    await _ecommerceContext?.SaveChangesAsync();
                     return "Deleted Successfully";
                 }
                 else
